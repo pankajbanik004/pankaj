@@ -5,12 +5,80 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pankaj Banik - Futuristic Portfolio</title>
   <style>
+    /* Add this CSS for the "Get in Touch" form */
+    .contact-form {
+      margin: 60px 0;
+      text-align: center;
+    }
+
+    .contact-form h2{
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #00ffcc;
+      text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+      animation: glow 2s infinite alternate;
+    }
+
+    .contact-form form {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background: rgba(234, 20, 20, 0.1);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid rgba(54, 240, 131, 0.2);
+      border-radius: 10px;
+      background: rgba(68, 254, 31, 0.1);
+      color: white;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #00ffcc;
+      box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      height: 150px;
+    }
+
+    .contact-form button {
+      padding: 10px 20px;
+      background: #00ffcc;
+      border: none;
+      border-radius: 10px;
+      color: #0f2027;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
+    }
+
+
+
     /* General Styles */
     body {
       margin: 0;
       padding: 0;
       font-family: 'Arial', sans-serif;
-      background: radial-gradient(circle, #0f2027, #203a43, #2c5364);
+      background: radial-gradient(circle, hsl(168, 79%, 13%), #230e24, #0d090f);
       color: white;
       overflow-x: hidden;
     }
@@ -81,7 +149,6 @@
     }
 
     /* Skills Section */
-    /* 3D Floating Skill Orb */
     .skills-orb {
       position: relative;
       width: 500px;
@@ -153,180 +220,157 @@
     .orb:nth-child(4) { top: 80%; left: 50%; transform: translateX(-50%); }
     .orb:nth-child(5) { top: 60%; left: 20%; transform: translateX(-50%); }
     .orb:nth-child(6) { top: 30%; left: 20%; transform: translateX(-50%); }
-  
 
     /* Projects Section */
-    .projects {
-      margin: 60px 0;
-      position: relative;
-      margin: 0;
-      padding: 0;
-      font-family: 'Courier New', monospace;
-      background: radial-gradient(circle, #0f2027, #203a43, #2c5364);
+    /* Projects Section */
+.projects {
+  margin: 60px 0;
+  position: relative;
+  overflow: hidden;
+}
 
-      color: #fff;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
+.projects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.project-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  border: 2px solid transparent;
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  overflow: hidden;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  cursor: pointer;
+  width: 200px;
+  height: 200px;
+  animation: flutter 6s infinite ease-in-out;
+}
+
+@keyframes flutter {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(0) rotate(-5deg);
+  }
+  75% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+.project-card:hover {
+  animation: none;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3), 0 0 40px rgba(255, 255, 255, 0.2);
+}
+
+.project-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.1);
+}
+
+.project-card h3 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: #fff;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff;
+}
+
+.project-card p {
+  font-size: 0.9rem;
+  margin: 10px 0;
+  color: #fff;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff;
+  opacity: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #fff;
+  animation: typing 3s steps(40, end) forwards;
+}
+
+@keyframes typing {
+  from { width: 0; opacity: 1; }
+  to { width: 100%; opacity: 1; }
+}
+    /* Get in Touch Form */
+    .contact-form {
+      margin: 60px 0;
+      text-align: center;
     }
 
-    .projects h2 {
+    .contact-form h2 {
       font-size: 2.5rem;
-      margin-bottom: 40px;
-      color: #fff;
-      text-shadow: 0 0 10px #fff, 0 0 20px #fff;
+      margin-bottom: 20px;
+      color: #00ffcc;
+      text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
       animation: glow 2s infinite alternate;
     }
 
-    @keyframes glow {
-      0% { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff; }
-      100% { text-shadow: 0 0 20px #fff, 0 0 40px #fff, 0 0 80px #fff; }
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
+    .contact-form form {
+      max-width: 500px;
+      margin: 0 auto;
       padding: 20px;
-    }
-
-    .project-card {
-      position: relative;
       background: rgba(255, 255, 255, 0.1);
       border-radius: 15px;
-      border: 2px solid transparent;
-      backdrop-filter: blur(10px);
-      padding: 20px;
-      overflow: hidden;
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
-      cursor: pointer;
-    }
-
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      background: linear-gradient(45deg, #43c6ac, #f3904f, #fbffae);
-      border-radius: 15px;
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-
-    .project-card:hover::before {
-      opacity: 1;
-    }
-
-    .project-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3), 0 0 40px rgba(255, 255, 255, 0.2);
-    }
-
-    .project-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
-      transition: transform 0.5s ease;
-    }
-
-    .project-card:hover img {
-      transform: scale(1.1);
-    }
-
-    .project-card h3 {
-      font-size: 1.5rem;
-      margin: 10px 0;
-      color: #fff;
-      text-shadow: 0 0 10px #fff, 0 0 20px #fff;
-    }
-
-    .project-card p {
-      font-size: 1rem;
-      margin: 10px 0;
-      color: #fff;
-      text-shadow: 0 0 10px #fff, 0 0 20px #fff;
-      opacity: 0;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 2px solid #fff;
-      animation: typing 3s steps(40, end) forwards;
-    }
-
-    @keyframes typing {
-      from { width: 0; opacity: 1; }
-      to { width: 100%; opacity: 1; }
-    }
-
-    /* Matrix Background */
-    .matrix {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('matrix.gif');
-      background-size: cover;
-      animation: matrixScroll 10s linear infinite;
-    }
-
-    @keyframes matrixScroll {
-      from { background-position: 0 0; }
-      to { background-position: 0 100%; }
-    }
-
-    /* Mobile Responsiveness */
-    @media (max-width: 768px) {
-      .projects h2 {
-        font-size: 2rem;
-      }
-
-      .projects-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      }
-
-      .project-card {
-        width: 100%;
-      }
-
-      .project-card h3 {
-        font-size: 1.2rem;
-      }
-
-      .project-card p {
-        font-size: 0.9rem;
-      }
-    }
-    /* Resume Section */
-    .resume{
-      margin: 60px 0;
-    
-    }
-
-    .resume-options {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .resume-options a {
-      text-decoration: none;
-      color: white;
-      font-size: 1.2rem;
-      padding: 10px 20px;
-      background-color: rgb(12, 14, 15);
-      border-radius: 10px;
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #00ffcc;
+      box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      height: 150px;
+    }
+
+    .contact-form button {
+      padding: 10px 20px;
+      background: #00ffcc;
+      border: none;
+      border-radius: 10px;
+      color: #0f2027;
+      font-size: 1rem;
+      cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .resume-options a:hover {
+    .contact-form button:hover {
       transform: scale(1.1);
       box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
     }
@@ -354,28 +398,8 @@
       text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
     }
 
-    /* Particle Background */
-    #particles-js {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
-
-    .skills h2, .projects h2, .social h2 ,.resume h2{
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      color: #0b0e0e;
-      text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
-      animation: glow 2s infinite alternate;
-      text-align: center;
-    }
-
-
-        /* Add this CSS for the avatar */
-        .avatar-container {
+    /* Avatar */
+    .avatar-container {
       position: relative;
       display: flex;
       justify-content: center;
@@ -393,11 +417,6 @@
       box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
       animation: float 4s infinite ease-in-out;
       cursor: pointer;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
     }
 
     .speech-bubble {
@@ -421,65 +440,50 @@
       opacity: 1;
     }
 
-
-
-
-
-
+    /* Mobile Responsiveness */
     @media (max-width: 768px) {
-  .container {
-    padding: 10px;
-  }
+      .pen-animation {
+        font-size: 2.5rem;
+      }
 
-  /* Header */
-  .pen-animation {
-    font-size: 2.5rem;
-  }
+      .intro {
+        font-size: 1rem;
+        padding: 15px;
+      }
 
-  /* Introduction */
-  .intro {
-    font-size: 1rem;
-    padding: 15px;
-  }
+      .skills-orb {
+        width: 300px;
+        height: 300px;
+      }
 
-  /* Skills Orb */
-  .skills-orb {
-    width: 300px;
-    height: 300px;
-  }
+      .orb {
+        width: 60px;
+        height: 60px;
+      }
 
-  .orb {
-    width: 60px;
-    height: 60px;
-  }
+      .orb img {
+        width: 30px;
+        height: 30px;
+      }
 
-  .orb img {
-    width: 30px;
-    height: 30px;
-  }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
 
-  /* Projects */
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
+      .project-card {
+        width: 100%;
+      }
 
-  .project-card {
-    width: 100%;
-  }
+      .avatar {
+        width: 100px;
+        height: 100px;
+      }
 
-  /* Avatar */
-  .avatar {
-    width: 100px;
-    height: 100px;
-  }
-
-  .speech-bubble {
-    font-size: 0.8rem;
-    padding: 8px 15px;
-  }
-}
-
-    
+      .speech-bubble {
+        font-size: 0.8rem;
+        padding: 8px 15px;
+      }
+    }
   </style>
   <!-- Particles.js Library -->
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -500,8 +504,7 @@
     </div>
 
     <!-- Introduction -->
-     <!-- Avatar and Speech Bubble -->
-     <div class="avatar-container">
+    <div class="avatar-container">
       <div class="avatar" onclick="toggleSpeech()">
         <div class="speech-bubble" id="speech-bubble">Hi, I'm Pankaj Banik!</div>
       </div>
@@ -512,11 +515,7 @@
       Hi, I'm Pankaj Banik, a passionate web developer with expertise in HTML, CSS, JavaScript, Python, and modern frameworks. I love creating responsive, user-friendly, and visually stunning websites. Let's build something amazing together!
     </div>
 
-    <!-- Rest of your content -->
-  </div>
     <!-- Skills Section -->
-
-    
     <h1>My Skills</h1>
     <div class="skills-orb">
       <div class="orb" data-skill="HTML">
@@ -538,13 +537,13 @@
         <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="React">
       </div>
     </div>
-  </div>
 
     <!-- Projects Section -->
     <div class="projects">
       <h2>My Projects</h2>
       <div class="intro">
-        Here are some of the innovative projects I’ve worked on, showcasing my skills in design, development, and problem-solving. Each project reflects my passion for creating impactful and user-friendly solutions.      </div>
+        Here are some of the innovative projects I’ve worked on, showcasing my skills in design, development, and problem-solving. Each project reflects my passion for creating impactful and user-friendly solutions.
+      </div>
       <div class="matrix"></div>
       <div class="projects-grid">
         <div class="project-card">
@@ -580,183 +579,14 @@
       </div>
     </div>
 
-    <!-- Resume Section -->
-    <div class="resume">
-      <h2>My Resume</h2>
-      <div class="resume-options">
-        <a href="" download="Pankaj_Banik_Resume.pdf">Download Resume</a>
-        <a href="path/to/your/resume.pdf" target="_blank">View Resume</a>
-      </div>
+
+    <!-- Get in Touch Form -->
+    <div class="contact-form">
+      <h2>Get in Touch</h2>
+      <form action="https://formspree.io/f/mbldqnwy" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
     </div>
-
-    <!-- Social Links -->
-    <div class="social">
-      <h2>Connect With Me</h2>
-      <div class="social-links">
-        <a href="https://github.com" target="_blank">&#x1F431;</a> <!-- GitHub -->
-        <a href="https://linkedin.com" target="_blank">&#x1F4BC;</a> <!-- LinkedIn -->
-        <a href="https://twitter.com" target="_blank">&#x1F426;</a> <!-- Twitter -->
-      </div>
-    </div>
-  </div>
-
-  <!-- Particles.js Configuration -->
-  <script>
-
-
-
-    particlesJS("particles-js", {
-      "particles": {
-        "number": {
-          "value": 80,
-          "density": {
-            "enable": true,
-            "value_area": 800
-          }
-        },
-        "color": {
-          "value": "#00ffcc"
-        },
-        "shape": {
-          "type": "circle",
-          "stroke": {
-            "width": 0,
-            "color": "#000000"
-          },
-          "polygon": {
-            "nb_sides": 5
-          }
-        },
-        "opacity": {
-          "value": 0.5,
-          "random": false,
-          "anim": {
-            "enable": false,
-            "speed": 1,
-            "opacity_min": 0.1,
-            "sync": false
-          }
-        },
-        "size": {
-          "value": 3,
-          "random": true,
-          "anim": {
-            "enable": false,
-            "speed": 40,
-            "size_min": 0.1,
-            "sync": false
-          }
-        },
-        "line_linked": {
-          "enable": true,
-          "distance": 150,
-          "color": "#00ffcc",
-          "opacity": 0.4,
-          "width": 1
-        },
-        "move": {
-          "enable": true,
-          "speed": 6,
-          "direction": "none",
-          "random": false,
-          "straight": false,
-          "out_mode": "out",
-          "bounce": false,
-          "attract": {
-            "enable": false,
-            "rotateX": 600,
-            "rotateY": 1200
-          }
-        }
-        
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": {
-            "enable": true,
-            "mode": "repulse"
-          },
-          "onclick": {
-            "enable": true,
-            "mode": "push"
-          },
-          "resize": true
-        },
-        "modes": {
-          "grab": {
-            "distance": 400,
-            "line_linked": {
-              "opacity": 1
-            }
-          },
-          "bubble": {
-            "distance": 400,
-            "size": 40,
-            "duration": 2,
-            "opacity": 8,
-            "speed": 3
-          },
-          "repulse": {
-            "distance": 200,
-            "duration": 0.4
-          },
-          "push": {
-            "particles_nb": 4
-          },
-          "remove": {
-            "particles_nb": 2
-          }
-        }
-      },
-      "retina_detect": true
-    });
-
-
-
-
-
-
-
-    let isSpeaking = false;
-    let utterance;
-
-    // Function to toggle speech on and off
-    function toggleSpeech() {
-      const speechBubble = document.getElementById('speech-bubble');
-      const introText = "Hi, I'm Pankaj Banik, a passionate web developer with expertise in HTML, CSS, JavaScript, Python, and modern frameworks. I love creating responsive, user-friendly, and visually stunning websites. Let's build something amazing together!";
-
-      // Check if the browser supports the Web Speech API
-      if ('speechSynthesis' in window) {
-        if (!isSpeaking) {
-          // Start speaking
-          utterance = new SpeechSynthesisUtterance(introText);
-          utterance.voice = speechSynthesis.getVoices()[0]; // Use the default voice
-          utterance.rate = 1; // Speed of speech
-          utterance.pitch = 1; // Pitch of speech
-          speechSynthesis.speak(utterance);
-
-          // Show speech bubble while speaking
-          speechBubble.style.opacity = '1';
-          isSpeaking = true;
-
-          // Hide speech bubble when speech ends
-          utterance.onend = () => {
-            speechBubble.style.opacity = '0';
-            isSpeaking = false;
-          };
-        } else {
-          // Stop speaking
-          speechSynthesis.cancel();
-          speechBubble.style.opacity = '0';
-          isSpeaking = false;
-        }
-      } else {
-        alert('Your browser does not support the Web Speech API.');
-      }
-    }
-
-    
-  </script>
-</body>
-</html>
